@@ -11,15 +11,14 @@ export const connectDB = () => {
   }
 };
 export const connectTestDB = () => {
-  try{
+  try {
     MongoMemoryServer.create().then((mongo) => {
       const uri = mongo.getUri();
       mongoose.connect(uri).then(() => {
         //console.log("connected to testDB");
       });
     });
-  }
-  catch (error) {
+  } catch (error) {
     //console.log(error);
   }
 };

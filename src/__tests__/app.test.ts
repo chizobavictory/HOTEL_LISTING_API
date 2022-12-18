@@ -2,7 +2,7 @@ import supertest from "supertest";
 import app from "../app";
 import mongoose from "mongoose";
 
-// let token: string;
+let token: string;
 // let authorId: string;
 // let bookId: string;
 // let ID: string;
@@ -24,36 +24,40 @@ describe("POST /api/register", () => {
     // done()
   });
 
-  // test("login", async () => {
-  //   const response = await supertest(app)
-  //     .post("/users/login")
-  //     .send({ email: registerData.email, password: registerData.password });
-  //   token = response.body.token;
-  //   // console.log(response.body);
-  //   expect(response.status).toBe(201);
-  //   expect(response.body.message).toBe("User loggedin successfully");
-  // });
+  test("login", async () => {
+    const response = await supertest(app)
+      .post("/users/login")
+      .send({ email: registerData.email, password: registerData.password });
+    token = response.body.token;
+    // console.log(response.body);
+    expect(response.status).toBe(200);
+    expect(response.body.message).toBe("User loggedin successfully");
+  });
 });
 
-// describe("hotel", () => {
-//   const authorData = {
-//     author: "Hannah Montanna",
-//     age: 32,
-//     address: "7, Straight Street, Walls",
-//   };
+describe("hotel", () => {
+  const hotelData = {
+    "description": "University of West London",
+    "image": "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg",
+    "address": "Montogromery",
+    "price": 55000,
+    "numOfBeds": 9,
+    "numOfBaths": 23,
+    "ratings": 4
+  };
 
-//   test("create author", async () => {
-//     const response = await supertest(app)
-//       .post("/author")
-//       .set("Authorization", `Bearer ${token}`)
-//       .send(authorData);
-//     authorId = response.body.data.id;
-//     ID = response.body.data.id;
-//     //console.log(response.body.message,ID, 'CHIIDFJDFDFJD')
-//     expect(response.status).toBe(201);
-//     expect(response.body.message).toBe("creates new author");
-//     expect(response.body.data.author).toBe(authorData.author);
-//   });
+  // test("create author", async () => {
+  //   const response = await supertest(app)
+  //     .post("/author")
+  //     .set("Authorization", `Bearer ${token}`)
+  //     .send(hotelData);
+  //   authorId = response.body.data.id;
+  //   ID = response.body.data.id;
+  //   //console.log(response.body.message,ID, 'CHIIDFJDFDFJD')
+  //   expect(response.status).toBe(201);
+  //   expect(response.body.message).toBe("creates new author");
+  //   expect(response.body.data.author).toBe(hotelData.author);
+  // });
 
 //   test("update an author", async () => {
 //     const response = await supertest(app)
@@ -131,5 +135,5 @@ afterAll((done) => {
   mongoose.connection.close();
   done();
 });
-
+})
 // deletedata()
