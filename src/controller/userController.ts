@@ -79,9 +79,9 @@ export async function loginUser(req: Request, res: Response, next: NextFunction)
     if (validHotelUser) {
       res.cookie("auth", token);
       res.status(200).json({
-        msg: "User loggedin successfully",
+        message: "User loggedin successfully",
       });
-      // res.redirect("/users/home");
+     
     }
   } catch (error) {
     res.status(500).json({
