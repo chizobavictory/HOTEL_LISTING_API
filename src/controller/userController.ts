@@ -9,7 +9,7 @@ import fetch from "node-fetch";
 //CREATE
 export async function registerUsers(req: Request, res: Response, next: NextFunction) {
   const user_id = uuidv4();
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const validationResult = registerSchema.validate(req.body, options);
     if (validationResult.error) {
