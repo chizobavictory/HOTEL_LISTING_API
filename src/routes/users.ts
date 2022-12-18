@@ -24,7 +24,7 @@ router.get("/api/find/:id", singleUser);
 router.delete("/api/:id", deleteUsers);
 router.put("/api/update/:id", updateUsers);
 
-router.post("/logins", loginUser);
+router.post("/login", loginUser);
 router.post("/logout", logout);
 
 // ejs routes

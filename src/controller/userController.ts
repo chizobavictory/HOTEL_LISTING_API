@@ -38,7 +38,7 @@ export async function registerUsers(req: Request, res: Response, next: NextFunct
       password: passwordHash,
     });
     res.status(201).json({
-      msg: "you have sucessfully created a User",
+      message: "you have sucessfully created a User",
       record,
     });
     // res.render("login");
