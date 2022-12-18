@@ -21,7 +21,6 @@ export async function createHotels(req: Request | any, res: Response, next: Next
       msg: "you have sucessfully created a hotel listing",
       record,
     });
-    // res.redirect("/users/listing1");
   } catch (err) {
     res.status(500).json({
       msg: "failed to create",
@@ -34,8 +33,6 @@ export async function createHotels(req: Request | any, res: Response, next: Next
 export async function getHotels(req: Request, res: Response, next: NextFunction) {
   try {
     const limit = req.query?.limit as number | undefined;
-    // const offset = req.query?.offset as number | undefined;
-    // const record = await hotelInstance.findAll({where: {}})
     const record = await Hotel.find().limit(limit || 5);
 
     res.status(200).json({
@@ -93,7 +90,6 @@ export async function updateHotel(req: Request, res: Response, next: NextFunctio
       numOfBaths: numOfBaths,
       ratings: ratings,
     });
-    // res.redirect("/users/listing1");
     res.status(200).json({
       msg: "You have successfully updated your hotel",
       updateRecord,
@@ -120,7 +116,6 @@ export async function deleteHotel(req: Request, res: Response, next: NextFunctio
       msg: "Hotel deleted successfully",
       record,
     });
-    // res.render("listing1");
   } catch (error) {
     res.status(500).json({
       msg: "failed to delete",
