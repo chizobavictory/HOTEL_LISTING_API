@@ -3,9 +3,9 @@ import app from "../app";
 import mongoose from "mongoose";
 
 let token: string;
+let ID: string;
 // let authorId: string;
 // let bookId: string;
-// let ID: string;
 
 const registerData = {
   "fullName": "Chizoba Victory",
@@ -15,21 +15,19 @@ const registerData = {
   "confirm_password": "1234"
 };
 
-describe("POST /api/register", () => {
-  it("return status code 201", async () => {
+describe("Register and Login User", () => {
+  it("creates a new user", async () => {
     const res = await supertest(app).post("/users/api/register").send(registerData);
-
     expect(res.statusCode).toEqual(201);
     expect(res.body.message).toBe("you have sucessfully created a User");
     // done()
   });
 
-  test("login", async () => {
+  test("login a user", async () => {
     const response = await supertest(app)
       .post("/users/login")
       .send({ email: registerData.email, password: registerData.password });
     token = response.body.token;
-    // console.log(response.body);
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("User loggedin successfully");
   });
@@ -37,27 +35,27 @@ describe("POST /api/register", () => {
 
 describe("hotel", () => {
   const hotelData = {
-    "description": "University of West London",
+    "description": "Latest Hotel in Town",
     "image": "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg",
     "address": "Montogromery",
-    "price": 55000,
-    "numOfBeds": 9,
-    "numOfBaths": 23,
-    "ratings": 4
+    "price": 95000,
+    "numOfBeds": 10,
+    "numOfBaths": 20,
+    "ratings": 5
   };
 
-  // test("create author", async () => {
-  //   const response = await supertest(app)
-  //     .post("/author")
-  //     .set("Authorization", `Bearer ${token}`)
-  //     .send(hotelData);
-  //   authorId = response.body.data.id;
-  //   ID = response.body.data.id;
-  //   //console.log(response.body.message,ID, 'CHIIDFJDFDFJD')
-  //   expect(response.status).toBe(201);
-  //   expect(response.body.message).toBe("creates new author");
-  //   expect(response.body.data.author).toBe(hotelData.author);
-  // });
+  test("create hotel", async () => {
+    const response = await supertest(app)
+      .post("/hotels/api/create")
+      .set("auth", `Bearer ${token}`)
+      .send(hotelData);
+    // authorId = response.body.data.id;
+    ID = response.body.data.id;
+    console.log(response.body.message,ID, 'check if this is the id')
+    expect(response.status).toBe(201);
+    expect(response.body.message).toBe("you have sucessfully created a hotel listing");
+    // expect(response.body.data.author).toBe(hotelData.author);
+  });
 
 //   test("update an author", async () => {
 //     const response = await supertest(app)
