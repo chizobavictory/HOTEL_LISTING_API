@@ -18,12 +18,12 @@ export async function createHotels(req: Request | any, res: Response, next: Next
     }
     const record = await Hotel.create({ id, ...req.body, userId });
     res.status(201).json({
-      msg: "you have sucessfully created a hotel listing",
+      message: "you have sucessfully created a hotel listing",
       record,
     });
   } catch (err) {
     res.status(500).json({
-      msg: "failed to create",
+      message: "failed to create hotel listing",
       route: "/create",
     });
   }
