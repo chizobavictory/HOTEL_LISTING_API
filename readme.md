@@ -94,10 +94,10 @@ IMPLEMENTED AUTHORIZATION AND AUTHENTICATION: PROTECTED ALL ROUTES. ONLY THE LOG
 
 ### Hosting
 
-- Hosted application on Heroku
-- https://book-test-api.herokuapp.com/
+- Hosted application on Vercel
+- 
 
 ### Documentation
 
 - documentation of API done with postman
-- https://documenter.getpostman.com/view/18331158/UVXhpG9q
+- https://documenter.getpostman.com/view/24035086/2s8YzZNy69
