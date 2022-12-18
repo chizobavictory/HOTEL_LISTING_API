@@ -3,15 +3,16 @@ import createError, { HttpError } from "http-errors";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import mongoose from "mongoose";
+import { connectDB, connectTestDB } from './database/mongodb';
 import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.set("strictQuery", false);
-mongoose.connect(process.env.MONGO_URL!, () => {
-  console.log("Connected to MongoDB Database");
-});
+if(process.env.NODE_ENV === 'test'){
+  connectTestDB()
+}else{
+  connectDB()
+}
 
 import indexRouter from "./routes/index";
 import hotelRouter from "./routes/hotel";
