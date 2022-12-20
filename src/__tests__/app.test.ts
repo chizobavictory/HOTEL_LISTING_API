@@ -33,29 +33,28 @@ describe("Register and Login User", () => {
   });
 });
 
-describe("hotel", () => {
-  const hotelData = {
-    "description": "Latest Hotel in Town",
-    "image": "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg",
-    "address": "Montogromery",
-    "price": 95000,
-    "numOfBeds": 10,
-    "numOfBaths": 20,
-    "ratings": 5
-  };
-
-  test("create hotel", async () => {
-    const response = await supertest(app)
-      .post("/hotels/api/create")
-      .set("auth", `Bearer ${token}`)
-      .send(hotelData);
-    // authorId = response.body.data.id;
-    ID = response.body.data.id;
-    console.log(response.body.message,ID, 'check if this is the id')
-    expect(response.status).toBe(201);
-    expect(response.body.message).toBe("you have sucessfully created a hotel listing");
-    // expect(response.body.data.author).toBe(hotelData.author);
-  });
+// describe("Hotel", () => {
+ 
+//   test("create hotel", async () => {
+//     const hotelData = {
+//       "description": "Latest Hotel in Town",
+//       "image": "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg",
+//       "address": "Montogromery",
+//       "price": 95000,
+//       "numOfBeds": 10,
+//       "numOfBaths": 20,
+//       "ratings": 5
+//     };  
+//     const response = await supertest(app)
+//       .post("/hotels/api/create")
+//       .set("auth", `Bearer ${token}`)
+//       .send(hotelData);
+//     expect(response.status).toBe(201);
+//     expect(response.body.message).toBe("you have successfully created a hotel listing");
+//     expect(response.body.record).toBeTruthy();
+//     expect(response.body.record.id).toBeTruthy();
+//   });
+  
 
 //   test("update an author", async () => {
 //     const response = await supertest(app)
@@ -133,5 +132,5 @@ afterAll((done) => {
   mongoose.connection.close();
   done();
 });
-})
+// })
 // deletedata()
