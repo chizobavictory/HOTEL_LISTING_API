@@ -4,7 +4,7 @@
  */
 // require("dotenv").config()
 const app = require("../lib/app").default
-const debug = require("debug")("week-9-node-sq012-pod-i-chizobavictory:server");
+const debug = require("debug")("hotel_listing_api:server");
 const http = require("http");
 
 
