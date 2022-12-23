@@ -102,7 +102,7 @@ IMPLEMENTED AUTHORIZATION AND AUTHENTICATION: PROTECTED ALL ROUTES. ONLY THE LOG
 - documentation of API done with postman
 - https://documenter.getpostman.com/view/24035086/2s8YzZNy69
 
-##Demo
+### Demo
 
 https://user-images.githubusercontent.com/43314673/209295632-dff34f30-145c-4e34-965b-40ddb4a4c017.mov
 
